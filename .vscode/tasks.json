@@ -19,7 +19,7 @@
             "detail": "Compiles a C++ file using g++"
         },
         {
-            "label": "Run C++ (External Terminal)",
+            "label": "Run C++ (External Terminal)", 
             "type": "shell",
             "command": "cmd",
             "args": [
