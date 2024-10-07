@@ -1,3 +1,3 @@
-### Solutions for Competitive Coding Practice Problems
+# Solutions for Competitive Coding Practice Problems
 
-# C++ Solutions are in the cpp directory
+### C++ Solutions are in the cpp directory
