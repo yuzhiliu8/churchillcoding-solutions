@@ -6,39 +6,47 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g",
-                "${file}",
+                "${relativeFile}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "debug/${fileBasenameNoExtension}"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": ["$gcc"],
-            "detail": "Compiles a C++ file using g++"
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "revealProblems": "onProblem"
+            }
         },
         {
-            "label": "Run C++ (External Terminal)",
+            "label": "Run C++ on Text I/O",
             "type": "shell",
-            "command": "cmd",
+            "command": "debug\\${fileBasenameNoExtension}.exe",
             "args": [
-                "/c",
-                "start",
-                "cmd",
-                "/c",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe && echo. && echo. && echo. && pause"
+                "<",
+                "input.txt",
+                ">",
+                "output.txt"
             ],
-            "dependsOn": "Build C++",
+            "options": {
+                "shell": {
+                    "executable": "C:\\Windows\\System32\\cmd.exe",
+                    "args": ["/c"]  // Use "/c" to run the command and exit
+                }
+            },
+            "dependsOn": [
+                "Build C++"
+            ],
             "group": {
                 "kind": "test",
                 "isDefault": true
             },
-            "problemMatcher": [],
-            "detail": "Runs the compiled C++ executable in an external terminal",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+            },
         }
     ]
 }
