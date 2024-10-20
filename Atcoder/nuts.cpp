@@ -6,7 +6,6 @@ void solve()
 {
     int n;
     cin >> n;
-    int arr[n];
     int total = 0;
 
     for (int i = 0; i < n; i++)
