@@ -2,25 +2,20 @@
 
 using namespace std;
 
-void solve()
-{
-    string n;
+void solve(){
+    long long n;
     cin >> n;
 
-    if (n.length() % 2 == 0)
-    {
-        vector<string> pairs;
-        for (int i = 0; i < n.length()-2; i + 2){
-            string p = n.substr(i, i+2);
-            pairs.push_back(p);
-            cout << p << ' ';
+    for (int i = 0; i < 1000001; i++){
+        if(stoll(to_string(i) + to_string(i)) > n){
+            cout << i-1 << endl;
+            return;
         }
     }
-    
 }
 
-int main()
-{
+int main(){
+    
     solve();
     return 0;
 }
