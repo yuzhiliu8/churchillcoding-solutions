@@ -1,31 +1,29 @@
 #include <bits/stdc++.h>
+#define ll long long int
 
 using namespace std;
 
 void solve(){
     int n;
     cin >> n;
-    unordered_map<int, int> freq;
+    
+    vector<ll> cnt(401, 0);
 
-    for (int i = 0; i < n; i++){
-        int a;
-        cin >> a;
-        freq[a]++;
-    }
-    vector<int> keys;
-    for (auto kv: freq){
-        keys.push_back(kv.first);
+    for (int i = 0 ; i < n; i++){
+        int x;
+        cin >> x;
+        cnt[x+200]++;
     }
 
-    long long sum = 0;
-    for (size_t i = 0; i < keys.size(); i++){
-        for (size_t j = i+1; j < keys.size(); j++){
-            int sq_diff = pow(abs(keys[j]-keys[i]), 2);
-            sum += freq[keys[i]] * freq[keys[j]] * sq_diff;
+    ll sum = 0;
+    for (int i = 0; i < 401; i++){
+        for (int j = i; j < 401; j++){
+            sum += cnt[i] * cnt[j] * (i-j) * (i-j);
         }
     }
-    cout << sum << endl;
+    cout << sum << '\n';
 
+    
 }
 
 int main(){
