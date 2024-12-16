@@ -1,14 +1,9 @@
-
-
 hex_conversions = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, 
                '7': 7, '8': 8, '9': 9, 'A': 10, 'B': 11,
                 "C": 12, "D": 13, "E": 14, "F": 15 }
 
-
-
 def dec_to_hex(d: int) -> str:
     return hex(d)[2:].upper()
-
 
 def add_hexes(a:str, b:str ) -> str:
     max_len = max(len(a), len(b))
@@ -27,45 +22,31 @@ def add_hexes(a:str, b:str ) -> str:
     
     return hex_sum
 
-def combined_hex(a:str):
-    sum_digits = a[0]
-    for i in range(1, len(a)):
+def sum_hex_digits(a:str):
+    sum_digits = ""
+    for i in range(len(a)):
         sum_digits = add_hexes(sum_digits, a[i])
 
     return sum_digits
 
-
 def main():
-    for _ in range(1, 6):
+    for testcase in range(1, 6):
+        
         start, delta, rows = list(input().split())
+        rows = int(rows)
 
         current = start
-        row_r = ""
-        for row in range(2, int(rows)+1):
+        final_row = ""
+        for row in range(2, rows+1):
             for i in range(row):
                 current = add_hexes(current, delta)
-                if row == int(rows):
-                    row_r += current
+                if row == rows:
+                    final_row += current
+
+        while (len(final_row) > 1):
+            final_row = sum_hex_digits(final_row)
     
-
-        while (len(row_r) > 1):
-            row_r = combined_hex(row_r)
-    
-        print(f'{_}. {row_r}')
-    
-
-
-    
-
-
-
-
-
-
-
-
-
-
+        print(f'{testcase}. {final_row}')
 
 if __name__ == "__main__":
     main()
