@@ -2,3 +2,5 @@
 *.out
 input.txt
 output.txt
+/usaco_contests
+*.class

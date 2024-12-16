@@ -14,6 +14,5 @@ int main()
         cout << text << '\n';
     }
 
-    
     return 0;
 }
