@@ -1,3 +1,4 @@
-# Solutions for Competitive Coding Practice Problems
+# Churchill Competitive Coding Club
 
-### C++ Solutions are in the cpp directory
+## Solutions for Competitive Coding Problems
+
